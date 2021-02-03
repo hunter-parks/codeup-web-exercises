@@ -38,8 +38,21 @@ var Fullpayment = (Facebook* Fpays) + (Amazon* Apays) + (Google* Gpays);
 console.log (Fullpayment)
 alert("The total payment of every company listed is $ " + Fullpayment);
 
+// Exercise 3 Question 3
+var classIsFull = confirm("Is the class you're trying to join full?");
+var hasScheduleConflicts = confirm("Do you have at 12:30 already?");
+console.log(classIsFull);
+console.log(hasScheduleConflicts);
+alert("You can join the class is a " + (!classIsFull && !hasScheduleConflicts) + " statement. ");
+
+
 //Exercise 3 Question 4
-var morethan2 = true;
-var notexpired = true;
-var pr
+var hasMoreThanTwoItems = confirm (" Do you have more than Two items in your cart ");
+var isOfferValid = confirm (" Is the offer still valid?");
+var isPremiumMember = confirm (" Are you a Premium Member? ");
+var canUserUseOffer = (hasMoreThanTwoItems || isPremiumMember) && isOfferValid;
+alert(" You can use this offer is a " + canUserUseOffer + " statement ");
+
+
+
 
