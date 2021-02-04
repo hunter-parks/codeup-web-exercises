@@ -9,8 +9,9 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 function sayHello(name){
-    return ("Hello," + "Hunter")
+    return ("Hello," + name + "!")
 }
+console.log(sayHello("Codeup"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -54,7 +55,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num){
-    return (num === 2);
+    return (num === 2 ) ;
 }
 console.log(isTwo(random));;
 
