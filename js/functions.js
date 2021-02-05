@@ -1,4 +1,8 @@
-"use strict";
+(function(){
+    "use strict";
+var car = "Honda Civic";
+
+console.log(car);
 
 /**
  * TODO:
@@ -109,3 +113,4 @@ function applyDiscount(originalPrice, discountPercentage){
 
  console.log(applyDiscount(100,.2));
 
+})()
