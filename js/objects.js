@@ -18,8 +18,8 @@ console.log("Hello there!");
         firstName: "Hunter",
         lastName: "Parks"
     }
-
-    console.log(person);
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     /**
      * TODO:
@@ -31,10 +31,15 @@ console.log("Hello there!");
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 function sayHello(){
-    return ("Hello from " + person.firstName);
+    return ("Hello from " + person.firstName + " " + person.lastName + "!");
     }
     console.log(sayHello());
 sayHello();
+
+    person.sayHello = function (){
+        return "Hello from " + this.firstName + " " + this.lastName + "!"
+    }
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -65,7 +70,7 @@ sayHello();
     }
 
     shoppers.forEach(function (shopper){
-        console.log(shopper.name + " owes before discount $" + shopper.amount + " but with the discount you owe $" + discount(shopper.amount));
+        console.log(shopper.name + " ," +  " you owe $" + shopper.amount +  " before the discount " + " ,"  + " but with the discount you owe $" + discount(shopper.amount));
     });
 //     var name;
 //     var amountOver200;
@@ -90,18 +95,7 @@ sayHello();
 
 
 
-//     var discount = 12;
-//     var amountOver200 = prompt("How much did you spend?")
-//
-//     function amountBought (price,discount) {
-//         if (amountBought >= amountOver200){
-//             alert ("Cool! You get a 12% discount!");
-//
-//         } else {
-//             alert("Sorry, you didn't spend over $200! ");
-//         }
-//     }
-// amountBought(200,12);
+
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -114,28 +108,33 @@ sayHello();
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-    var books = [];
+   var books = [
+        {
+            title: "It",
+            author: {
+                firstName: "Stephen",
+                lastName: "King"
+            }
+        },
+        {
+            title: "Beyond the Universe",
+            author: {
+                firstName: "Bill",
+                lastName: "Pearl"
+            }
+        },
+        {
+            title: "SuperMarket",
+            author: {
+                firstName: "Bobby",
+                lastName: "Tarotino"
+            }
+        }]
+   console.log(books[0]);
+   console.log(books[1]);
+   console.log([2]);
 
-    console.log(books);
 
-    books = ["It", "Harry Potter Series", "Beyond the Universe",]
-
-    console.log(books);
-
-    // var books = {
-    //     title: "It",
-    //     firstName: "Stephen",
-    //     lastName: "King"
-    // }
-    //
-    // var books = {
-    //     title: "Harry Potter Series",
-    //     firstName: "J.K.",
-    //     lastName: "Rowling"
-    // }
-    // console.log(books[0].title);
-    // console.log(books[0].firstName);
-    // console.log(books[0].lastName);
 
 
     /**
@@ -162,6 +161,60 @@ sayHello();
      *      ---
      *      ...
      */
+books.forEach(function (book,index){
+    console.log("Book # " + (index + 1));
+    console.log("Title: " + book.title);
+    console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    console.log("---");
+})
+
+
+
+
+
+
+
+    //
+    // var theLibrary = [
+    //     firstBook,
+    //     secondBook,
+    //     thirdBook
+    // ]
+    // console.log(theLibrary);
+    //
+    // for (var i = 0; i <= 3; i++){
+    //     console.log(books.indexOf());
+    // }
+
+
+    // firstBook.turnOn = function() {
+    //     console.log(theLibrary.indexOf());
+    // }
+    // theLibrary.forEach(function (books){
+    //     books.turnOn();
+    // })
+
+
+    // var array = ["It", "Harry Potter Series", "Beyond the Universe"]
+    // array.forEach(function (item, index) {
+    //     console.log(item, index);
+    // });
+
+
+
+    // var theLibrary = [
+    //     books
+    // ]
+    // console.log(theLibrary);
+    //
+    // books.turnOn = function() {
+    //     console.log(books.indexOf(books));
+    // }
+    //
+    // theLibrary.forEach(function (book){
+    //     book.turnOn();
+    // })
+    // console.log()
 
     /**
      * Bonus:
@@ -173,5 +226,6 @@ sayHello();
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
 
 })();
