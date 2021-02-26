@@ -108,6 +108,7 @@ sayHello();
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    createBook("It", "Stephen", "King");
    var books = [
         {
             title: "It",
@@ -162,59 +163,14 @@ sayHello();
      *      ...
      */
 books.forEach(function (book,index){
-    console.log("Book # " + (index + 1));
-    console.log("Title: " + book.title);
-    console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-    console.log("---");
+    showBookInfo(book,index)
+    // console.log("Book # " + (index + 1));
+    // console.log("Title: " + book.title);
+    // console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    // console.log("---");
 })
 
 
-
-
-
-
-
-    //
-    // var theLibrary = [
-    //     firstBook,
-    //     secondBook,
-    //     thirdBook
-    // ]
-    // console.log(theLibrary);
-    //
-    // for (var i = 0; i <= 3; i++){
-    //     console.log(books.indexOf());
-    // }
-
-
-    // firstBook.turnOn = function() {
-    //     console.log(theLibrary.indexOf());
-    // }
-    // theLibrary.forEach(function (books){
-    //     books.turnOn();
-    // })
-
-
-    // var array = ["It", "Harry Potter Series", "Beyond the Universe"]
-    // array.forEach(function (item, index) {
-    //     console.log(item, index);
-    // });
-
-
-
-    // var theLibrary = [
-    //     books
-    // ]
-    // console.log(theLibrary);
-    //
-    // books.turnOn = function() {
-    //     console.log(books.indexOf(books));
-    // }
-    //
-    // theLibrary.forEach(function (book){
-    //     book.turnOn();
-    // })
-    // console.log()
 
     /**
      * Bonus:
@@ -226,6 +182,27 @@ books.forEach(function (book,index){
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(bookTitle, authorFirstName, authorLastName) {
+        var newBook = {
+            title: bookTitle,
+            author: {
+                firstName: authorFirstName,
+                lastName: authorLastName
+            }
+        }
+        return newBook;
+    }
+
+    console.log(createBook("Beyond the Universe", "Bill", "Pearl"));
+
+    function showBookInfo(bookObject,bookNumber){
+        console.log("Book # " + (bookNumber + 1));
+        console.log("Title: " + bookObject.title);
+        console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+        console.log("---");
+    }
+
 
 
 })();
