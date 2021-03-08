@@ -1,18 +1,22 @@
 .fancy-header {
-    color: olive;
+    color: black;
     text-decoration: underline;
     text-align: center;
 }
 
 h2{
     text-decoration: underline;
-    color: olive;
+    color: black;
 }
 
 body{
     background-color: lightgray;
     color: maroon;
-    font-family:'Ravi Prakash', cursive;
+    font-family:"Helvetica Neue", "Helvetica", sans-serif;
+    font-size: larger;
+    background-image: url("../images/yellow-rose.jpg");
+    background-size: 100em;
+    background-position: center;
 
 }
 
@@ -29,5 +33,27 @@ body{
     list-style: georgian;
 }
 
+table{
+    border: thick solid black;
+    border-collapse: collapse;
+    font-size: 1.2em;
+}
+
+th,td{
+    border: thin solid black;
+    padding: 10px;
+}
+
+a:link{
+    color: yellow;
+}
+
+a:visited{
+    color: black;
+}
+
+a:hover{
+    color: red;
+}
 
 
