@@ -1,4 +1,38 @@
 .fancy-header {
-    color: purple;
+    color: yellow;
     text-decoration: underline;
+    text-align: center;
 }
+
+h2{
+    text-decoration: underline;
+    color: yellow;
+}
+
+body{
+    background-color: lightgray;
+    color: ghostwhite;
+    background-image: url("../images/arizona-sunset.jpg");
+    height: 75em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:'Ravi Prakash';
+
+}
+
+.fix{
+    width: 150px;
+    height: 150px;
+}
+.fix2{
+    width: 150px;
+    height: 150px;
+}
+
+.colorbox{
+    list-style: georgian;
+}
+
+
+
