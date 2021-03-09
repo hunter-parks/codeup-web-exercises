@@ -1,0 +1,41 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message-info{
+    background: lightskyblue;
+    width: 20em;
+    height: auto;
+    padding: 0;
+    margin: 7px;
+
+}
+
+.message-success{
+    background: palegreen;
+    width: 20em;
+    height: auto;
+    padding: 0;
+    margin: 7px;
+
+}
+
+.message-warning{
+    background: lightyellow;
+    width: 20em;
+    height: auto;
+    padding: 0;
+    margin: 7px;
+}
+
+.message-error{
+    background: lightcoral;
+    width: 20em;
+    height: auto;
+    padding: 0;
+    margin: 7px;
+}
