@@ -12,7 +12,7 @@ nav {
 
 .nav-item {
     display: flex;
-    font-size: smaller;
+    font-size: small;
 }
 ul {
     display: flex;
@@ -23,20 +23,21 @@ ul {
 nav a {
     text-decoration: none;
     color: #000000;
-    font-family: "Helvetica Neue";
-    font-size: small;
+    font-family: "Montserrat";
+    /*font-size: small;*/
     display: inline-block;
     padding: 3px;
 }
 nav a:hover {
     background: black;
+    color: antiquewhite;
 }
 nav #first li:nth-child(6) {
     margin-left: auto;
 }
 nav #first li:nth-child(5){
     margin-left: auto;
-    font-size: xxx-large;
+    font-size: x-large;
     align-self: auto;
 }
 
