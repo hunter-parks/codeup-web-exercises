@@ -1,0 +1,11 @@
+
+.jumbotron {
+    background-image: url("../img/pizza.png");
+    background-color: lightgrey;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    width: 100vw;
+    object-fit: fill;
+}
+
