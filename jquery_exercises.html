@@ -7,29 +7,42 @@
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body id="background-color">
 <h1 id="header"> Welcome to My Page </h1>
 <hr>
 <div>
-    <p class="paragraph"> Today I will be taking you along a journey of nonsense! I hope you are mentally prepared because it is indeed
-        impactful. By all means feel free to leave any moment. </p>
+    <p class="paragraph"> Today I will be taking you along a journey of bodybuilding and some techniques! So sit back, relax, and grab some popcorn! You are in for a whirlwind of awesomeness! </p>
     <br>
-    <p> In today's lecture, the theory of The Arnold Split by Arnold! Arnold believed that training antagonistic muscles
+    <p class="paragraph"> In today's lecture, the theory of The Arnold Split by Arnold! Arnold believed that training antagonistic muscles
         were the best ways to gain mass. Hence, for example:</p>
     <ul>
-        <li> Chest and Back</li>
-        <li> Biceps and Triceps</li>
-        <li> Shoulders and Legs</li>
+        <li class="cool"> Chest and Back</li>
+        <li class="cool"> Biceps and Triceps</li>
+        <li class="cool"> Shoulders and Legs</li>
     </ul>
 
 </div>
 
 <script>
-    // $(document).ready(function() {
-    //     alert( 'jquery is talking now!' );
-    // });
+    $(document).ready(function() {
+        console.log( 'jquery is talking now!' );
+    });
 
+    $('#header').click(function(e){
+        console.log(e);
+        $(this).css('background','#B4F9A5')
+    })
 
+    $('#background-color').click(function(e){
+        $(this).css('background', '#F5AD94')
+    })
+    $('.paragraph').dblclick(function(e){
+        $(this).css('font-size', '23px')
+    })
+
+    $('.cool').click(function(e){
+        $(this).css('background', ' #B4F9A5')
+    })
 </script>
 </body>
 </html>
