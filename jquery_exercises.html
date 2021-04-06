@@ -43,6 +43,16 @@
     $('.cool').click(function(e){
         $(this).css('background', ' #B4F9A5')
     })
+
+    $('.cool').hover(function(e){
+        console.log('enter');
+        $(e.target).css('background','cornflowerblue')
+    },function(e){
+        console.log('leave');
+        $(e.target).css('background','#B4F9A5')
+        })
+
+
 </script>
 </body>
 </html>
