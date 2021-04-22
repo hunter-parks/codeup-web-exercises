@@ -53,10 +53,10 @@
         // Event Handler / Listener Function Review from JavaScript
 
         // with anon function
-        //     var mainContainer = document.getElementById("container");
-        //     mainContainer.addEventListener('click', function(e){
-        //         console.log(e);
-        //     })
+            var mainContainer = document.getElementById("container");
+            mainContainer.addEventListener('click', function(e){
+                console.log(e);
+            })
 
         // with defined handler
         //
@@ -72,9 +72,9 @@
 
         // jQuery with anon function
 
-        // $("#container").click(function(e){
-        //     console.log(e);
-        // })
+        $("#container").click(function(e){
+            console.log(e);
+        })
 
 
 
@@ -90,11 +90,11 @@
 
         // Double click and using "this" or "e.target"
 
-        // $("li").dblclick(function(e){
-        //     // console.log(e);
-        //     console.log(this);
-        //     $(this).css("background","yellow");
-        // })
+        $("li").dblclick(function(e){
+            // console.log(e);
+            console.log(this);
+            $(this).css("background","yellow");
+        })
 
         // function dblClickHandler(e){
         //     // console.log(e);

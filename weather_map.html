@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <title>Weather Map Project</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
+<style>
+    body {
+        background-color: lightgray;
+    }
+    .header {
+        text-align: center;
+        color: olive;
+    }
+
+
+</style>
+
 <body>
+<h1 class="header"> Weather Map! </h1>
 
 <div id='map' style='width: 400px; height: 300px;'></div>
-
-
 
 
 <script src="js/keys.js"></script>
@@ -38,17 +49,37 @@
         zoom: 9 // starting zoom
     });
 
+    var marker = new mapboxgl.Marker({color: "red", draggable: true})
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+
     $(document).ready(function () {
 
 
-        $.get("https://api.openweathermap.org/data/2.5/weather", {
+            $.get("https://api.openweathermap.org/data/2.5/weather", {
+                q: "San Antonio,US",
+                appid: OPEN_WEATHER_APPID,
+                units: "imperial"
+            }).done(function (result) {
+                console.log(result);
+            });
+        })
+
+        $.get("https://api.openweathermap.org/data/2.5/forecast", {
             q: "San Antonio,US",
             appid: OPEN_WEATHER_APPID,
             units: "imperial"
         }).done(function (result) {
             console.log(result);
         });
-    })
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>

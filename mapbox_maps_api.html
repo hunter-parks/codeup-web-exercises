@@ -24,6 +24,12 @@
         center: [-98.4861, 29.4252], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
+// setting the zoom after map is drawn
+    map.setZoom(20);
+
+    geocode("2035 Emerald Edge, San Antonio,Tx 78245", mapboxToken).then(function(coordinates){
+        console.log(" House coordinates", coordinates);
+    })
 </script>
 </body>
 </html>
