@@ -11,10 +11,12 @@
     body {
         background-color: lightgray;
     }
+
     .header {
         text-align: center;
         color: olive;
     }
+
     div.days-cards {
         display: flex;
         align-items: flex-start;
@@ -40,20 +42,22 @@
 <div id='map' style='width: 400px; height: 300px;'></div>
 
 
-
 <div class="days-cards">
     <div>
         <header class="day1">Monday</header>
         <p class="temperature1"></p>
         <div class=" weather">
             <p>
-                Description:  <nobr class="descrOne"></nobr>
+                Description:
+                <nobr class="descrOne"></nobr>
             </p>
             <p>
-                Humidity: <nobr class="humidOne"></nobr>
+                Humidity:
+                <nobr class="humidOne"></nobr>
             </p>
             <p>
-                Wind Speed/Direction: <nobr class="windOne"></nobr>
+                Wind Speed/Direction:
+                <nobr class="windOne"></nobr>
             </p>
         </div>
     </div>
@@ -63,13 +67,16 @@
         <p class="temperature2"></p>
         <div class=" weather">
             <p>
-                Description:  <nobr class="descrTwo"></nobr>
+                Description:
+                <nobr class="descrTwo"></nobr>
             </p>
             <p>
-                Humidity: <nobr class="humidTwo"></nobr>
+                Humidity:
+                <nobr class="humidTwo"></nobr>
             </p>
             <p>
-                Wind Speed/Direction: <nobr class="windTwo"></nobr>
+                Wind Speed/Direction:
+                <nobr class="windTwo"></nobr>
             </p>
         </div>
     </div>
@@ -79,13 +86,16 @@
         <p class="temperature3"></p>
         <div class=" weather">
             <p>
-                Description:  <nobr class="descrThree"></nobr>
+                Description:
+                <nobr class="descrThree"></nobr>
             </p>
             <p>
-                Humidity: <nobr class="humidThree"></nobr>
+                Humidity:
+                <nobr class="humidThree"></nobr>
             </p>
             <p>
-                Wind Speed/Direction: <nobr class="windThree"></nobr>
+                Wind Speed/Direction:
+                <nobr class="windThree"></nobr>
             </p>
         </div>
     </div>
@@ -95,13 +105,16 @@
         <p class="temperature4"></p>
         <div class=" weather">
             <p>
-                Description:  <nobr class="descrFour"></nobr>
+                Description:
+                <nobr class="descrFour"></nobr>
             </p>
             <p>
-                Humidity: <nobr class="humidFour"></nobr>
+                Humidity:
+                <nobr class="humidFour"></nobr>
             </p>
             <p>
-                Wind Speed/Direction: <nobr class="windFour"></nobr>
+                Wind Speed/Direction:
+                <nobr class="windFour"></nobr>
             </p>
         </div>
     </div>
@@ -111,18 +124,20 @@
         <p class="temperature5"></p>
         <div class=" weather">
             <p>
-                Description:  <nobr class="descrFive"></nobr>
+                Description:
+                <nobr class="descrFive"></nobr>
             </p>
             <p>
-                Humidity: <nobr class="humidFive"></nobr>
+                Humidity:
+                <nobr class="humidFive"></nobr>
             </p>
             <p>
-                Wind Speed/Direction: <nobr class="windFive"></nobr>
+                Wind Speed/Direction:
+                <nobr class="windFive"></nobr>
             </p>
         </div>
     </div>
 </div>
-
 
 
 <script src="js/keys.js"></script>
@@ -136,10 +151,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<!-- Linking geocode -->
+
 <script src="js/keys.js"></script>
 
 <script>
-// JavaScript to implement the weather in
+    // JavaScript to implement the weather in
 
     mapboxgl.accessToken = mapboxToken
     console.log(mapboxToken);
@@ -151,47 +168,60 @@
         zoom: 9 // starting zoom
     });
 
-   // Getting input location
-function retrieveForecast() {
-    var inputField = document.querySelector('#search');
-    var field = inputField.value
-    console.log(field);
+    // Getting input location
+    function retrieveForecast() {
+        var inputField = document.querySelector('#search');
+        var field = inputField.value
+        console.log(field);
 
-    // Getting weather for location
-    geocode(place,mapboxToken).then(function (results) {
-        $.get("https://api.openweathermap.org/data/2.5/onecall", {
-            appid: mapboxToken,
-            lat: results[1],
-            lon: results[0],
-            daily: results[4],
-            units: 'imperial',
-            exclude: 'current,minutely,hourly,alerts'
-        }).done(function (results) {
-            console.log(results)
-            for (var i = 1; i <= 5; i++) {
+        // Getting weather for location
+        geocode(place, mapboxToken).then(function (results) {
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                appid: weathermapToken,
+                lat: results[1],
+                lon: results[0],
+                daily: results[4],
+                units: 'imperial',
+                exclude: 'current,minutely,hourly,alerts'
+            }).done(function (results) {
+                console.log(results)
 
-                //the Dates
-                var date = new Date();
-                date.setDate(date.getDate() + i)
-                var dd = String(date.getDate()).padStart(2, '0');
-                var mm = String(date.getMonth()).padStart(2, '0');
-                $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
+                // Getting the marker
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/dark-v10',
+                    center: results,
+                    zoom: 9
+                });
 
-                var day = results.daily[i].temp.day.toFixed(2)
-                var eve = results.daily[i].temp.eve.toFixed(2)
-                $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit
-                $(".humidity" + i).html(`${results.daily[i].humidity}%`)
-                $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
-                $(".pressure" + i).html(`${results.daily[i].pressure}`)
-            }
-        })
-    })
-}
+                var marker = new mapboxgl.Marker({color: 'red'})
+                    .setLngLat(results)
+                    .addTo(map)
+                    .setDraggable(true)
 
+                    //Updating the Forecast
+                    .on('dragend', function () {
+                        console.log(marker.getLngLat());
+                        reverseGeocode(marker.getLngLat(), mapboxToken).then(function (results) {
+                            console.log(results);
+                            geocode(place, mapboxToken).then(function (results) {
+                                $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                                    appid: mapboxToken,
+                                    lat: results[1],
+                                    lon: results[0],
+                                    daily: results[4],
+                                    units: "imperial",
+                                    exclude: "current,minutely,hourly,alerts"
+                                }).done(function (results) {
+                                    console.log(results);
 
-
-
-
+                                })
+                            })
+                        });
+                    });
+            });
+        });
+    }
 
 
 </script>
