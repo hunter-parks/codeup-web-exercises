@@ -151,30 +151,42 @@
         zoom: 9 // starting zoom
     });
 
-    var marker = new mapboxgl.Marker({color: "red", draggable: true})
-        .setLngLat([-98.4916, 29.4260])
-        .addTo(map);
+   // Getting input location
+function retrieveForecast() {
+    var inputField = document.querySelector('#search');
+    var field = inputField.value
+    console.log(field);
 
-    $(document).ready(function () {
+    // Getting weather for location
+    geocode(place,mapboxToken).then(function (results) {
+        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+            appid: mapboxToken,
+            lat: results[1],
+            lon: results[0],
+            daily: results[4],
+            units: 'imperial',
+            exclude: 'current,minutely,hourly,alerts'
+        }).done(function (results) {
+            console.log(results)
+            for (var i = 1; i <= 5; i++) {
 
+                //the Dates
+                var date = new Date();
+                date.setDate(date.getDate() + i)
+                var dd = String(date.getDate()).padStart(2, '0');
+                var mm = String(date.getMonth()).padStart(2, '0');
+                $(".day" + i).html(`${date.getFullYear()}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`)
 
-            $.get("https://api.openweathermap.org/data/2.5/weather", {
-                q: "San Antonio,US",
-                appid: OPEN_WEATHER_APPID,
-                units: "imperial"
-            }).done(function (result) {
-                console.log(result);
-            });
+                var day = results.daily[i].temp.day.toFixed(2)
+                var eve = results.daily[i].temp.eve.toFixed(2)
+                $(".temp" + i).html(`${day}\u00B0F / ${eve}\u00B0F`) // \u00B0 + F adds degrees Fahrenheit
+                $(".humidity" + i).html(`${results.daily[i].humidity}%`)
+                $(".wind" + i).html(`${results.daily[i].wind_speed} mph`)
+                $(".pressure" + i).html(`${results.daily[i].pressure}`)
+            }
         })
-
-        $.get("https://api.openweathermap.org/data/2.5/forecast", {
-            q: "San Antonio,US",
-            appid: OPEN_WEATHER_APPID,
-            units: "imperial"
-        }).done(function (result) {
-            console.log(result);
-        });
-
+    })
+}
 
 
 
