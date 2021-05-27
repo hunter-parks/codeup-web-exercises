@@ -7,6 +7,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <style>
+    /* CSS */
     body {
         background-color: lightgray;
     }
@@ -14,14 +15,114 @@
         text-align: center;
         color: olive;
     }
+    div.days-cards {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 2em;
+    }
 
+    div > div {
+        border: solid 1px black;
+    }
 
 </style>
 
 <body>
+<!-- HTML to make the cards and map -->
+
 <h1 class="header"> Weather Map! </h1>
 
+<input id="search" type="text" placeholder="Search">
+<input id="submit" type="submit">
+<br>
+
 <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+
+<div class="days-cards">
+    <div>
+        <header class="day1">Monday</header>
+        <p class="temperature1"></p>
+        <div class=" weather">
+            <p>
+                Description:  <nobr class="descrOne"></nobr>
+            </p>
+            <p>
+                Humidity: <nobr class="humidOne"></nobr>
+            </p>
+            <p>
+                Wind Speed/Direction: <nobr class="windOne"></nobr>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <header class="day2">Tuesday</header>
+        <p class="temperature2"></p>
+        <div class=" weather">
+            <p>
+                Description:  <nobr class="descrTwo"></nobr>
+            </p>
+            <p>
+                Humidity: <nobr class="humidTwo"></nobr>
+            </p>
+            <p>
+                Wind Speed/Direction: <nobr class="windTwo"></nobr>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <header class="day3">Wednesday</header>
+        <p class="temperature3"></p>
+        <div class=" weather">
+            <p>
+                Description:  <nobr class="descrThree"></nobr>
+            </p>
+            <p>
+                Humidity: <nobr class="humidThree"></nobr>
+            </p>
+            <p>
+                Wind Speed/Direction: <nobr class="windThree"></nobr>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <header class="day4">Thursday</header>
+        <p class="temperature4"></p>
+        <div class=" weather">
+            <p>
+                Description:  <nobr class="descrFour"></nobr>
+            </p>
+            <p>
+                Humidity: <nobr class="humidFour"></nobr>
+            </p>
+            <p>
+                Wind Speed/Direction: <nobr class="windFour"></nobr>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <header class="day5">Friday</header>
+        <p class="temperature5"></p>
+        <div class=" weather">
+            <p>
+                Description:  <nobr class="descrFive"></nobr>
+            </p>
+            <p>
+                Humidity: <nobr class="humidFive"></nobr>
+            </p>
+            <p>
+                Wind Speed/Direction: <nobr class="windFive"></nobr>
+            </p>
+        </div>
+    </div>
+</div>
+
 
 
 <script src="js/keys.js"></script>
@@ -38,6 +139,7 @@
 <script src="js/keys.js"></script>
 
 <script>
+// JavaScript to implement the weather in
 
     mapboxgl.accessToken = mapboxToken
     console.log(mapboxToken);
